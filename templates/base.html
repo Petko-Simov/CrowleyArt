@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crowley Art</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="content-wrapper">
+    <header class="hero-header text-center text-light py-4">
+        <h1 class="display-4 fw-bold">Crowley Art</h1>
+        <p class="lead">Where gothic ink meets digital mysticism.</p>
+    </header>
+
+    <main class="container py-4">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</div>
+
+<footer class="text-center mt-auto py-3 bg-dark text-light">
+    <p>&copy; 2025 Crowley Art. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
