@@ -1,12 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Crowley Art</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/css/styles.css" rel="stylesheet">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 <body>
+{% include "navbar.html" %}
 
 <div class="content-wrapper">
     <header class="hero-header text-center text-light py-4">
@@ -16,7 +20,6 @@
 
     <main class="container py-4">
         {% block content %}
-
         {% endblock %}
     </main>
 </div>
@@ -25,6 +28,6 @@
     <p>&copy; 2025 Crowley Art. All rights reserved.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

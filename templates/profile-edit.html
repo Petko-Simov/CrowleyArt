@@ -1,11 +1,10 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-<div class="d-flex justify-content-start">
-    <div class="login-form-box custom-register-position ms-5">
-        <h2 class="text-center mb-4">Register</h2>
-        <form method="post">
+    <div class="edit-profile-box">
+        <h3 class="text-light mb-4 text-center">Edit Profile</h3>
+        <form method="post" class="edit-form-wrapper">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {% for field in form %}
@@ -20,10 +19,10 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-            <div class="d-grid">
-                <button type="submit" class="custom-login-btn">Register</button>
+            <div class="edit-button-row mt-4">
+                <button type="submit" class="custom-login-btn">Save Changes</button>
+                <a href="{% url 'profile-details' %}" class="custom-login-btn">Back</a>
             </div>
         </form>
     </div>
-</div>
 {% endblock %}

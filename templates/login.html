@@ -2,20 +2,29 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        <div class="mb-3">
-            {{ form.username.label_tag }}
-            {{ form.username }}
+    <div class="d-flex justify-content-end">
+        <div class="login-form-box custom-login-position me-5">
+            <h2 class="text-center mb-4">Login</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Email</label>
+                    <input type="email" name="username" class="form-control" id="id_username" placeholder="Email"
+                           required>
+                </div>
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="id_password" placeholder="Password"
+                           required>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn custom-login-btn">Login</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            {{ form.password.label_tag }}
-            {{ form.password }}
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-</div>
+    </div>
 {% endblock %}
+
+
+
+

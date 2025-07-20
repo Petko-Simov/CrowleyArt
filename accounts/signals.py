@@ -9,10 +9,3 @@ UserModel = get_user_model()
 def create_user_profile(sender, instance: UserModel, created: bool, **kwargs) -> None:
     if created:
         Profile.objects.create(nickname=instance)
-
-@receiver(post_delete, sender=UserModel)
-def delete_user_profile(sender, instance: UserModel, **kwargs) -> None:
-    try:
-        instance.profile.delete()
-    except Profile.DoesNotExist:
-        pass
