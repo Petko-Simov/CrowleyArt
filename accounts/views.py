@@ -6,7 +6,7 @@ from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accounts.forms import RegisterForm, ProfileDetailsForm
 from accounts.mixins import ProfileAccessMixin
-from accounts.models import Profile, AppUser
+
 
 UserModel = get_user_model()
 

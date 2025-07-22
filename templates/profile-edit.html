@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-    <div class="edit-profile-box">
-        <h3 class="text-light mb-4 text-center">Edit Profile</h3>
-        <form method="post" class="edit-form-wrapper">
+<div class="edit-profile-wrapper">
+
+    <h3 class="edit-profile-heading">Edit Profile</h3>
+
+    <div class="edit-form-wrapper">
+        <form method="post" id="edit-profile-form">
             {% csrf_token %}
             {{ form.non_field_errors }}
             {% for field in form %}
@@ -19,10 +22,12 @@
                     {% endfor %}
                 </div>
             {% endfor %}
-            <div class="edit-button-row mt-4">
-                <button type="submit" class="custom-login-btn">Save Changes</button>
-                <a href="{% url 'profile-details' %}" class="custom-login-btn">Back</a>
-            </div>
         </form>
     </div>
+
+    <div class="edit-btn-wrapper">
+        <button type="submit" form="edit-profile-form" class="custom-login-btn">Save</button>
+        <a href="{% url 'profile-details' %}" class="btn custom-login-btn">Back</a>
+    </div>
+</div>
 {% endblock %}

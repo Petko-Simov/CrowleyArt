@@ -78,36 +78,78 @@ footer {
 }
 
 .custom-register-position {
-    margin-top: -9rem;
     width: 50%;
     max-width: 200px;
 }
 
-.edit-profile-box {
+.register-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: -2.5vw;
     margin-top: -9rem;
+}
+
+.custom-profile-box {
+    margin-top: -9rem;
+    margin-left: -1.75vw;
     width: 100%;
-    max-width: 350px;
-    padding: 1.5rem;
+    max-width: 220px;
+    padding: 0.5rem 0;
     border-radius: 0.5rem;
     background: transparent;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 
-.edit-form-wrapper {
-    width: 100%;
+.profile-text {
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
-.edit-button-row {
+.profile-btn-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
+    margin-top: 0.5rem;
+    margin-left: -2.5vw;
 }
 
-.edit-button-row .custom-login-btn {
-    width: 100%;
+.profile-btn-wrapper .custom-login-btn {
+    width: 100px;
     text-align: center;
     text-decoration: none;
 }
 
+.edit-profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -9rem;
+    margin-left: -2.5vw;
+}
+
+.edit-form-wrapper {
+    max-width: 220px;
+    padding-left: 0.5rem;
+}
+
+.edit-btn-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-left: -0.55vw;
+}
+
+.edit-btn-wrapper .custom-login-btn {
+    width: 100px;
+    text-align: center;
+}
+
+.edit-profile-heading {
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    text-align: left;
+}

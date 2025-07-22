@@ -3,22 +3,24 @@
 
 {% block content %}
     <div class="custom-profile-box text-light">
-        <h4 class="text-start mb-3">Profile Details</h4>
-        <p><strong>Username:</strong> {{ profile.nickname.username }}</p>
-        <p><strong>Over 18:</strong> {{ profile.is_adult|yesno:"Yes,No" }}</p>
-        <p><strong>Tattoos Made:</strong> {{ profile.tattoos_made|default:"N/A" }}</p>
-        <p><strong>Phone Number:</strong> {{ profile.phone_number|default:"N/A" }}</p>
-        <p><strong>Social Media:</strong>
-            {% if profile.social_media %}
-                <a href="{{ profile.social_media }}" class="link-light" target="_blank">{{ profile.social_media }}</a>
-            {% else %}
-                N/A
-            {% endif %}
-        </p>
-        <div class="d-flex justify-content-between mt-4">
+        <div class="profile-text">
+            <h4 class="mb-3">Profile Details</h4>
+            <p><strong>Username:</strong> {{ profile.nickname.username }}</p>
+            <p><strong>Over 18:</strong> {{ profile.is_adult|yesno:"Yes,No" }}</p>
+            <p><strong>Tattoos Made:</strong> {{ profile.tattoos_made|default:"N/A" }}</p>
+            <p><strong>Phone Number:</strong> {{ profile.phone_number|default:"N/A" }}</p>
+            <p><strong>Social Media:</strong>
+                {% if profile.social_media %}
+                    <a href="{{ profile.social_media }}" class="link-light"
+                       target="_blank">{{ profile.social_media }}</a>
+                {% else %}
+                    N/A
+                {% endif %}
+            </p>
+        </div>
+        <div class="profile-btn-wrapper">
             <a href="{% url 'profile-edit' %}" class="btn custom-login-btn">Edit</a>
             <a href="{% url 'profile-delete' %}" class="btn custom-login-btn">Delete</a>
         </div>
-
     </div>
 {% endblock %}
