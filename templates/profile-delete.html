@@ -2,30 +2,29 @@
 {% load static %}
 
 {% block content %}
-    <div class="custom-profile-box">
-        <h3 class="text-light text-center mb-3">Confirm Delete</h3>
-
-        <p class="text-light mb-3 text-center">Are you sure you want to delete your profile?</p>
-
-        <ul class="text-light">
-            <li><strong>Username:</strong> {{ object.nickname.username }}</li>
-            <li><strong>Over 18:</strong> {{ object.is_adult|yesno:"Yes,No" }}</li>
-            <li><strong>Tattoos Made:</strong> {{ object.tattoos_made|default:"N/A" }}</li>
-            <li><strong>Phone Number:</strong> {{ object.phone_number|default:"N/A" }}</li>
-            <li><strong>Social Media:</strong>
-                {% if object.social_media %}
-                    <a href="{{ object.social_media }}" class="link-light" target="_blank">{{ object.social_media }}</a>
-                {% else %}
-                    N/A
-                {% endif %}
-            </li>
-        </ul>
-
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" class="custom-login-btn w-100 mb-2">Yes, Delete</button>
-            <a href="{% url 'profile-details' %}" class="btn btn-outline-light w-100">Cancel</a>
-        </form>
-
+    <div class="delete-wrapper">
+        <div class="custom-profile-box">
+            <h3 class="text-light text-center mb-3">Confirm Delete</h3>
+            <p class="text-light mb-3 text-center">Are you sure you want to delete your profile?</p>
+            <ul class="text-light">
+                <li><strong>Username:</strong> {{ object.nickname.username }}</li>
+                <li><strong>Over 18:</strong> {{ object.is_adult|yesno:"Yes,No" }}</li>
+                <li><strong>Tattoos Made:</strong> {{ object.tattoos_made|default:"N/A" }}</li>
+                <li><strong>Phone Number:</strong> {{ object.phone_number|default:"N/A" }}</li>
+                <li><strong>Social Media:</strong>
+                    {% if object.social_media %}
+                        <a href="{{ object.social_media }}" class="link-light"
+                           target="_blank">{{ object.social_media }}</a>
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </li>
+            </ul>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="custom-login-btn w-100 mb-2">Yes, Delete</button>
+                <a href="{% url 'profile-details' %}" class="btn btn-outline-light w-100">Cancel</a>
+            </form>
+        </div>
     </div>
 {% endblock %}

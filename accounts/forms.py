@@ -48,19 +48,72 @@ class RegisterForm(UserCreationForm):
             field.label = self.Meta.labels.get(field_name, field.label)
             field.help_text = self.Meta.help_texts.get(field_name, field.help_text)
 
+
 class ProfileDetailsForm(forms.ModelForm):
+    username_input = forms.CharField(
+        max_length=50,
+        required=True,
+        label="Nickname",
+        widget=forms.TextInput(attrs={'placeholder': 'Username'}),
+    )
+
     class Meta:
         model = Profile
-        fields = ['nickname', 'is_adult', 'tattoos_made', 'phone_number', 'social_media']
+        fields = ['username_input', 'is_adult', 'tattoos_made', 'phone_number', 'social_media']
         widgets = {
             'phone_number': forms.TextInput(attrs={'placeholder': '+3598XXXXXXXX'}),
             'social_media': forms.URLInput(attrs={'placeholder': 'https://...'}),
         }
 
     def __init__(self, *args, **kwargs):
-        user = kwargs.pop('user', None)
+        self.user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
-        if user and not user.is_staff:
+        if self.instance and self.instance.nickname:
+            self.fields['username_input'].initial = self.instance.nickname.username
+
+        if self.user and not self.user.is_staff:
             self.fields['tattoos_made'].disabled = True
+
+    def save(self, commit=True):
+        profile = super().save(commit=False)
+
+        new_username = self.cleaned_data['username_input']
+        user = self.instance.nickname
+        user.username = new_username
+        user.save()
+
+        if commit:
+            profile.save()
+
+        return profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
