@@ -51,6 +51,57 @@ class RegisterForm(UserCreationForm):
 
 class ProfileDetailsForm(forms.ModelForm):
     username_input = forms.CharField(
+        label="Username",
+        widget=forms.TextInput(attrs={
+            'readonly': 'readonly',
+            'class': 'form-control-plaintext text-light',
+        }),
+    )
+
+    class Meta:
+        model = Profile
+        fields = ['username_input', 'is_adult', 'tattoos_made', 'phone_number', 'social_media']
+        widgets = {
+            'tattoos_made': forms.NumberInput(attrs={
+                'readonly': 'readonly',
+                'class': 'form-control-plaintext text-light',
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'readonly': 'readonly',
+                'class': 'form-control-plaintext text-light',
+            }),
+            'social_media': forms.URLInput(attrs={
+                'readonly': 'readonly',
+                'class': 'form-control-plaintext text-light',
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super().__init__(*args, **kwargs)
+
+        if self.instance and self.instance.nickname:
+            self.fields['username_input'].initial = self.instance.nickname.username
+
+        for name, field in self.fields.items():
+            if name != 'is_adult':
+                field.widget.attrs['readonly'] = 'readonly'
+                field.widget.attrs['class'] = 'form-control-plaintext text-light'
+
+        if 'is_adult' in self.fields:
+            self.fields['is_adult'] = forms.CharField(
+                initial="Yes" if self.instance.is_adult else "No",
+                label="Over 18 years old:",
+                widget=forms.TextInput(attrs={
+                    'readonly': 'readonly',
+                    'class': 'form-control-plaintext text-light',
+                })
+            )
+
+
+
+class ProfileEditForm(forms.ModelForm):
+    username_input = forms.CharField(
         max_length=50,
         required=True,
         label="Nickname",

@@ -162,7 +162,15 @@ footer {
     margin-left: -1.5vw;
 }
 
+.form-control-plaintext {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.3rem;
+}
 
+.form-check-input[disabled] {
+    margin-top: 0.2rem;
+}
 
 
 
