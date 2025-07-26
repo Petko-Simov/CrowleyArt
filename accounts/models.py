@@ -1,7 +1,9 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.core.validators import MinLengthValidator
 from django.db import models
 from accounts.managers import AppUserManager
+from accounts.validators import AppUserUsernameValidator, BulgarianPhoneValidator
 
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
@@ -12,6 +14,10 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         max_length=50,
         unique=True,
+        validators=[
+            MinLengthValidator(2),
+            AppUserUsernameValidator(min_letters=2),
+        ],
     )
 
     is_active = models.BooleanField(
@@ -25,7 +31,7 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     objects = AppUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']  # задължително при създаване през createsuperuser
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self) -> str:
         return self.username
@@ -51,15 +57,20 @@ class Profile(models.Model):
     )
 
     phone_number = models.CharField(
-        max_length=10,
+        max_length=13,
         null=True,
-        blank=True
+        blank=True,
+        validators=[
+            BulgarianPhoneValidator(),
+        ]
     )
 
     social_media = models.URLField(
         null=True,
         blank=True
     )
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
         return self.nickname.username

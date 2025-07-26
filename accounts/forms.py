@@ -1,11 +1,13 @@
-
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.core.validators import MinLengthValidator
 
 from accounts.models import Profile
+from accounts.validators import AppUserUsernameValidator
 
 UserModel = get_user_model()
+
 
 class RegisterForm(UserCreationForm):
     class Meta:
@@ -50,6 +52,16 @@ class RegisterForm(UserCreationForm):
 
 
 class ProfileDetailsForm(forms.ModelForm):
+
+    created_at = forms.DateTimeField(
+        label="Created on:",
+        required=False,
+        widget=forms.TextInput(attrs={
+            'readonly': 'readonly',
+            'class': 'form-control-plaintext text-light',
+        })
+    )
+
     username_input = forms.CharField(
         label="Username",
         widget=forms.TextInput(attrs={
@@ -58,9 +70,24 @@ class ProfileDetailsForm(forms.ModelForm):
         }),
     )
 
+    is_adult = forms.CharField(
+        label="Over 18 years old:",
+        required=False,
+        widget=forms.TextInput(attrs={
+            'readonly': 'readonly',
+            'class': 'form-control-plaintext text-light',
+        }),
+    )
+
     class Meta:
         model = Profile
-        fields = ['username_input', 'is_adult', 'tattoos_made', 'phone_number', 'social_media']
+
+        fields = [
+            'username_input',
+            'tattoos_made',
+            'phone_number',
+            'social_media',
+        ]
         widgets = {
             'tattoos_made': forms.NumberInput(attrs={
                 'readonly': 'readonly',
@@ -77,26 +104,26 @@ class ProfileDetailsForm(forms.ModelForm):
         }
 
     def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
+        user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
         if self.instance and self.instance.nickname:
             self.fields['username_input'].initial = self.instance.nickname.username
 
-        for name, field in self.fields.items():
-            if name != 'is_adult':
-                field.widget.attrs['readonly'] = 'readonly'
-                field.widget.attrs['class'] = 'form-control-plaintext text-light'
+        self.fields['is_adult'].initial = "Yes" if self.instance.is_adult else "No"
 
-        if 'is_adult' in self.fields:
-            self.fields['is_adult'] = forms.CharField(
-                initial="Yes" if self.instance.is_adult else "No",
-                label="Over 18 years old:",
-                widget=forms.TextInput(attrs={
+        # created_at
+        self.fields['created_at'].initial = self.instance.created_at
+
+        for name, field in self.fields.items():
+            if name not in ('username_input', 'is_adult', 'created_at'):
+                field.widget.attrs.update({
                     'readonly': 'readonly',
                     'class': 'form-control-plaintext text-light',
                 })
-            )
+
+        if user and not user.is_staff:
+            self.fields['tattoos_made'].disabled = True
 
 
 
@@ -105,15 +132,41 @@ class ProfileEditForm(forms.ModelForm):
         max_length=50,
         required=True,
         label="Nickname",
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}),
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Username',
+            'class': 'form-control',
+        }
+        ),
+        validators=[
+            AppUserUsernameValidator(),
+            MinLengthValidator(2),
+        ],
     )
 
     class Meta:
         model = Profile
-        fields = ['username_input', 'is_adult', 'tattoos_made', 'phone_number', 'social_media']
+        fields = [
+            'username_input',
+            'is_adult',
+            'tattoos_made',
+            'phone_number',
+            'social_media',
+        ]
         widgets = {
-            'phone_number': forms.TextInput(attrs={'placeholder': '+3598XXXXXXXX'}),
-            'social_media': forms.URLInput(attrs={'placeholder': 'https://...'}),
+            'is_adult': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'tattoos_made': forms.NumberInput(attrs={
+                'class': 'form-control',
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'placeholder': '+359XXXXXXXXX',
+                'class': 'form-control',
+            }),
+            'social_media': forms.URLInput(attrs={
+                'placeholder': 'https://...',
+                'class': 'form-control',
+            }),
         }
 
     def __init__(self, *args, **kwargs):
@@ -128,43 +181,11 @@ class ProfileEditForm(forms.ModelForm):
 
     def save(self, commit=True):
         profile = super().save(commit=False)
-
         new_username = self.cleaned_data['username_input']
-        user = self.instance.nickname
+        user = profile.nickname
         user.username = new_username
         user.save()
-
         if commit:
             profile.save()
 
         return profile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
