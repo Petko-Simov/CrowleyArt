@@ -26,7 +26,7 @@ A Django project for managing tattoo artist profiles and portfolios with a custo
   - Refactored `ProfileDetailsForm` for clearer settings and read‑only behavior  
   - Introduced the `Tattoo` model
 
-- [Fix login-or-register flow and gallery access prompt](<PUT_COMMIT_URL_HERE>)  
+- [Fix login-or-register flow and gallery access prompt](https://github.com/Petko-Simov/CrowleyArt/commit/f418777590914d79a98a98bc26b6cc357383cb71)  
   - Added intermediary login/register prompt for accessing the gallery when unauthenticated.  
   - Ensured the Django login view respects `next` and redirects appropriately (normal login → profile, gallery-triggered login → gallery).  
   - Restored proper input styling on login form (blue borders) without breaking existing layout.  
