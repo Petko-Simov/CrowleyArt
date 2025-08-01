@@ -4493,7 +4493,7 @@
     }
     EventHandler.one(target, EVENT_SHOW$4, showEvent => {
       if (showEvent.defaultPrevented) {
-        // only register focus restorer if modal will actually get shown
+        // only registration focus restorer if modal will actually get shown
         return;
       }
       EventHandler.one(target, EVENT_HIDDEN$4, () => {

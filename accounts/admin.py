@@ -37,5 +37,4 @@ class AppUserAdmin(BaseUserAdmin):
         }),
     )
 
-    filter_horizontal = ('groups', 'user_permissions')
 

@@ -1,0 +1,22 @@
+{% extends "common/base.html" %}
+{% load static %}
+{% block content %}
+  <div class="container mt-5" style="max-width: 600px;">
+    <h2 class="text-light mb-4">Add Tattoo</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+        <div class="mb-3">
+          {{ field.label_tag }}
+          {{ field }}
+          {% for err in field.errors %}
+            <div class="text-danger">{{ err }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-success">Save</button>
+      <a href="{% url 'tattoo-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}

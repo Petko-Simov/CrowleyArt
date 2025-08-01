@@ -112,7 +112,6 @@ class ProfileDetailsForm(forms.ModelForm):
 
         self.fields['is_adult'].initial = "Yes" if self.instance.is_adult else "No"
 
-        # created_at
         self.fields['created_at'].initial = self.instance.created_at
 
         for name, field in self.fields.items():
