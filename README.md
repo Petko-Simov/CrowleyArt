@@ -31,3 +31,9 @@ A Django project for managing tattoo artist profiles and portfolios with a custo
   - Ensured the Django login view respects `next` and redirects appropriately (normal login → profile, gallery-triggered login → gallery).  
   - Restored proper input styling on login form (blue borders) without breaking existing layout.  
   - Cleaned up and stabilized the access logic around gallery visibility.
+ 
+ - [Gallery UI: side Prev/Next + centered numeric pagination; ignore media & .idea](https://github.com/Petko-Simov/CrowleyArt/commit/3c2ca96b883152a3c43e2ac8a2d40dfce349de3d)  
+  - Added fixed side Previous/Next buttons aligned to the hero center; stable on hover.
+  - Centered numeric pagination (with ellipses) between the side buttons at the same vertical level.
+  - Left/right panels now paginate using current page items to keep columns stable across pages.
+
