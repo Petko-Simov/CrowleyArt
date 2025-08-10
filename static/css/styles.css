@@ -1,9 +1,8 @@
 body {
     font-family: 'Segoe UI', sans-serif;
 
-    background-image:
-        url('/media/background.jpg'),
-        radial-gradient(ellipse at center, #0c0617 0%, #060212 100%);
+    background-image: url('/media/background.jpg'),
+    radial-gradient(ellipse at center, #0c0617 0%, #060212 100%);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: contain, cover;
@@ -16,6 +15,8 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    overflow-x: hidden; /* за да не се пръскат страничните елементи при стесняване */
 }
 
 .content-wrapper {
@@ -90,7 +91,7 @@ footer {
 }
 
 .custom-profile-box {
-    margin-top: -9rem;
+    margin-top: -5.4rem;
     margin-left: -1.75vw;
     width: 100%;
     max-width: 220px;
@@ -126,7 +127,7 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: -9rem;
+    margin-top: -1.3rem;
     margin-left: -2.5vw;
 }
 
@@ -139,7 +140,7 @@ footer {
     display: flex;
     gap: 1rem;
     margin-top: 0.5rem;
-    margin-left: -0.55vw;
+    margin-left: -0.1vw;
 }
 
 .edit-btn-wrapper .custom-login-btn {
@@ -154,11 +155,10 @@ footer {
     text-align: left;
 }
 
-
-
 .delete-wrapper {
     display: flex;
     justify-content: flex-start;
+    margin-top: 3.5rem;
     margin-left: -1.5vw;
 }
 
@@ -171,6 +171,295 @@ footer {
 .form-check-input[disabled] {
     margin-top: 0.2rem;
 }
+
+.tattoo-card {
+    width: 160px;
+    max-width: 160px;
+    background: #1f2730;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tattoo-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .25s ease;
+}
+
+.tattoo-card:hover img {
+    transform: scale(1.05);
+}
+
+.tattoo-card .card-body {
+    padding: 0.35rem 0.55rem;
+    background: rgba(30, 38, 55, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 120px;
+}
+
+.tattoo-card .card-title {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.tattoo-card .card-text {
+    margin: 0;
+    font-size: 0.65rem;
+    line-height: 1.1;
+}
+
+.tattoo-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 9999;
+}
+
+.tattoo-modal.open {
+    display: flex;
+}
+
+.tattoo-modal-content {
+    position: relative;
+    background: #0f1422;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    padding: 1rem;
+    overflow: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.tattoo-modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: #f0f0f5;
+}
+
+#modal-img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.modal-info {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+@media (max-width: 992px) {
+    .home-gallery-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .side-tattoos {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 0.5rem 0;
+    }
+
+    .side-tattoos.left,
+    .side-tattoos.right {
+        justify-content: flex-start;
+    }
+
+    .tattoo-card.small {
+        flex: 0 0 auto;
+    }
+}
+
+.home-gallery-wrapper .tattoo-card {
+    width: 120px;
+    max-width: 120px;
+}
+
+.home-gallery-wrapper {
+    position: relative;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.side-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-auto-rows: auto;
+    gap: 0.35rem 0.55rem;
+}
+
+.left-panel,
+.right-panel {
+    position: absolute;
+    top: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap: 0.35rem 0.55rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.left-panel {
+    left: calc(50% - 892px);
+}
+
+.right-panel {
+    right: calc(50% - 892px);
+}
+
+
+.gallery-grid .tattoo-card {
+    width: 120px;
+    max-width: 120px;
+}
+
+@media (min-width: 992px) {
+    .gallery-grid .col-lg-3 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.add-tattoo-fixed {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+
+.gallery-page .left-panel,
+.gallery-page .right-panel {
+    top: -155px;
+    max-height: 760px;
+}
+
+.home-page .left-panel,
+.home-page .right-panel {
+    max-height: 760px;
+    top: -220px;
+}
+
+.gallery-page {
+  --center-half: 250px;
+  --btn-offset: 20px;
+  --btn-top: 80%;
+}
+
+.pager-prev,
+.pager-next {
+  position: fixed;
+  top: var(--btn-top);
+  z-index: 1000;
+  transform: translateY(-50%);
+  transform-origin: center;
+}
+
+.pager-prev {
+  left: calc(50% - var(--center-half) - var(--btn-offset));
+  transform: translate(-100%, -50%);
+}
+
+.pager-next {
+  left: calc(50% + var(--center-half) + var(--btn-offset));
+}
+
+.btn.custom-login-btn.pager-prev:hover {
+  transform: translate(-100%, -50%) scale(1.05) !important;
+}
+.btn.custom-login-btn.pager-next:hover {
+  transform: translateY(-50%) scale(1.05) !important;
+}
+
+.add-tattoo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -4.8rem;
+}
+
+@media (max-width: 992px) {
+  .add-tattoo-container { margin-top: -3rem; }
+}
+
+
+.add-tattoo-container .mb-3 { margin-bottom: 0.6rem; }
+.add-tattoo-container .form-text { font-size: 0.85rem; line-height: 1.25; margin-top: 0.2rem; }
+
+.add-tattoo-container textarea[name="description"] {
+  height: 90px;
+  min-height: 90px;
+  max-height: 120px;
+  resize: vertical;
+}
+
+.add-tattoo-container input.form-control,
+.add-tattoo-container textarea.form-control {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.gallery-page .center-pagination {
+  position: fixed;
+  top: var(--btn-top);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.gallery-page .center-pagination .pagination { margin: 0; }
+
+.gallery-page .center-pagination .page-link {
+  background: #2c2f45;
+  border: 2px solid #0d6efd;
+  color: #f8f9fa;
+}
+.gallery-page .center-pagination .page-item.active .page-link {
+  background: #3a3e5c;
+  border-color: #0d6efd;
+  color: #fff;
+}
+
+
+
 
 
 

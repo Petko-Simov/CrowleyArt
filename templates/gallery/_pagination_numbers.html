@@ -1,0 +1,32 @@
+{% with total=page_obj.paginator.num_pages current=page_obj.number %}
+    {% if total > 1 %}
+        <nav class="center-pagination" aria-label="Page numbers">
+            <ul class="pagination pagination-sm justify-content-center mb-0">
+
+                {% if current > 3 %}
+                    <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                    {% if current > 4 %}
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num >= current|add:'-2' and num <= current|add:'2' %}
+                        {% if num == current %}
+                            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if current < total|add:'-2' %}
+                    {% if current < total|add:'-3' %}
+                        <li class="page-item disabled"><span class="page-link">…</span></li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="?page={{ total }}">{{ total }}</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endwith %}

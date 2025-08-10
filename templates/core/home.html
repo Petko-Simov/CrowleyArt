@@ -1,0 +1,32 @@
+{% extends "common/base.html" %}
+{% load static %}
+
+{#{% block page-header %}{% endblock %}#}
+
+{% block content %}
+  <div class="home-gallery-wrapper home-page">
+
+    <div class="side-panel left-panel">
+      {% for tattoo in left_tattoos %}
+        <div class="tattoo-wrapper">
+          {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
+        </div>
+      {% endfor %}
+    </div>
+
+{#    <div class="hero-center">#}
+{#      <div class="hero-inner text-center text-light">#}
+{#        <h1 class="display-4 fw-bold">Crowley Art</h1>#}
+{#        <p class="lead">Where gothic ink meets digital mysticism</p>#}
+{#      </div>#}
+{#    </div>#}
+
+    <div class="side-panel right-panel">
+      {% for tattoo in right_tattoos %}
+        <div class="tattoo-wrapper">
+          {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

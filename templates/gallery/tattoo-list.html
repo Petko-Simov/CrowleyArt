@@ -1,30 +1,53 @@
 {% extends "common/base.html" %}
 {% load static %}
 
-{% block content %}
-<div class="container py-4">
-  <h2 class="text-light mb-4">Gallery</h2>
-  <div class="row g-4">
-    {% for tattoo in tattoos %}
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 bg-dark text-light border-light">
-          <img src="{{ tattoo.image.url }}" class="card-img-top" alt="{{ tattoo.tattoo_name }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ tattoo.tattoo_name }}</h5>
-            <p class="card-text mb-1">{{ tattoo.style }}</p>
-            <p class="card-text text-muted">{{ tattoo.price }} €</p>
-          </div>
-        </div>
-      </div>
-    {% empty %}
-      <p class="text-light">No tattoos yet.</p>
-    {% endfor %}
-  </div>
-
-  {% if user.is_staff %}
-    <div class="mt-4 text-center">
-      <a href="{% url 'tattoo-add' %}" class="btn btn-primary">Add Tattoo</a>
+{% block page-header %}
+    <div class="text-start">
+        <h1 class="fw-bold">Gallery</h1>
     </div>
-  {% endif %}
-</div>
 {% endblock %}
+
+{% block content %}
+    <div class="home-gallery-wrapper gallery-page">
+        <div class="side-panel left-panel">
+            {% for tattoo in left_tattoos %}
+                <div class="tattoo-wrapper">
+                    {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
+                </div>
+            {% empty %}
+                <p class="text-muted">No tattoos yet.</p>
+            {% endfor %}
+        </div>
+
+        <div class="side-panel right-panel">
+            {% for tattoo in right_tattoos %}
+                <div class="tattoo-wrapper">
+                    {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
+                </div>
+            {% empty %}
+                <p class="text-muted">No tattoos yet.</p>
+            {% endfor %}
+        </div>
+
+        {% if page_obj.has_previous %}
+            <a class="btn custom-login-btn pager-prev"
+               href="?page={{ page_obj.previous_page_number }}"
+               aria-label="Previous">Previous</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a class="btn custom-login-btn pager-next"
+               href="?page={{ page_obj.next_page_number }}"
+               aria-label="Next">Next</a>
+        {% endif %}
+  
+        {% include 'gallery/_pagination_numbers.html' with page_obj=page_obj %}
+
+    </div>
+
+    {% if user.is_staff %}
+        <div class="add-tattoo-fixed">
+            <a href="{% url 'tattoo-add' %}" class="btn custom-login-btn">Add Tattoo</a>
+        </div>
+    {% endif %}
+{% endblock %}
+

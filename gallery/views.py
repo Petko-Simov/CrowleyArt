@@ -5,20 +5,29 @@ from django.views.generic import ListView, CreateView
 
 from gallery.mixins import GalleryLoginRequiredMixin
 from gallery.models import Tattoo
-from gallery.forms import TattooForm
-
+from gallery.forms import TattooCreateForm
 
 
 class TattooListView(GalleryLoginRequiredMixin, ListView):
     model = Tattoo
     template_name = 'gallery/tattoo-list.html'
     context_object_name = 'tattoos'
-    paginate_by = 10
+    paginate_by = 48
+
+    def get_queryset(self):
+        return Tattoo.objects.order_by('-id')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page_items = list(context['page_obj'].object_list)
+        context['left_tattoos'] = page_items[::2]
+        context['right_tattoos'] = page_items[1::2]
+        return context
 
 
 class TattooCreateView(GalleryLoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Tattoo
-    form_class = TattooForm
+    form_class = TattooCreateForm
     template_name = 'gallery/tattoo-add.html'
     success_url = reverse_lazy('tattoo-list')
 

@@ -1,22 +1,28 @@
 {% extends 'common/base.html' %}
 {% load static %}
 
-{% block content %}
-  <div class="custom-profile-box text-light">
-    <h4 class="mb-4">Profile Details</h4>
-
-    <form>
-      {% for field in form %}
-        <div class="mb-1">
-          <label class="form-label">{{ field.label }}</label>
-          <div>{{ field }}</div>
-        </div>
-      {% endfor %}
-    </form>
-
-    <div class="profile-btn-wrapper">
-      <a href="{% url 'profile-edit' %}" class="btn custom-login-btn">Edit</a>
-      <a href="{% url 'profile-delete' %}" class="btn custom-login-btn">Delete</a>
+{% block page-header %}
+    <div class="text-start">
+        <h1 class="fw-bold">Profile</h1>
     </div>
-  </div>
+{% endblock %}
+
+{% block content %}
+    <div class="custom-profile-box text-light">
+        <h4 class="mb-4">Profile Details</h4>
+
+        <form>
+            {% for field in form %}
+                <div class="mb-1">
+                    <label class="form-label">{{ field.label }}</label>
+                    <div>{{ field }}</div>
+                </div>
+            {% endfor %}
+        </form>
+
+        <div class="profile-btn-wrapper">
+            <a href="{% url 'profile-edit' %}" class="btn custom-login-btn">Edit</a>
+            <a href="{% url 'profile-delete' %}" class="btn custom-login-btn">Delete</a>
+        </div>
+    </div>
 {% endblock %}

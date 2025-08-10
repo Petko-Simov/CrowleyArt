@@ -1,0 +1,16 @@
+<div class="card h-100 bg-dark text-light border-light tattoo-card"
+     data-title="{{ tattoo.tattoo_name }}"
+     data-style="{{ tattoo.style }}"
+     data-price="{{ tattoo.price }} €">
+  <div class="image-wrapper">
+    <img src="{{ tattoo.image.url }}" alt="{{ tattoo.tattoo_name }}" loading="lazy">
+  </div>
+
+  {% if show_thumbnail_info %}
+    <div class="card-body">
+      <h5 class="card-title">{{ tattoo.tattoo_name }}</h5>
+      <p class="card-text mb-1">{{ tattoo.style }}</p>
+      <p class="card-text text-muted">{{ tattoo.price }} €</p>
+    </div>
+  {% endif %}
+</div>

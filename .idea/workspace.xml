@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c9684fb6-069a-4d07-b1c4-495abc75394a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/471061919_567945665867114_2179243814320413015_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/472124893_575731975088483_8076092555283238682_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/473008441_591443530297495_3410187415949933951_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/473426008_591443443630837_6162045904621302564_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/480452949_614961381279043_7695058171690062988_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/480453620_617673897674458_6309018340548782176_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/482218159_632417026200145_4314976706461620741_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/484379437_637587592349755_1649483478858507950_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/484727020_637083935733454_4704435221802893954_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/484871302_637072442401270_7559532037136270176_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/484899364_637082622400252_6248731844380440465_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/484975592_637587782349736_6164263583555039121_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/485147852_637587599016421_4115545710199623774_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/485400496_637662062342308_8892114136045168391_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/486546898_645451941563320_3196218014519758851_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/497675553_682252654549915_5037483003059683169_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/497710808_681292434645937_2275721991911275644_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/503397030_695973143177866_2700695848196877882_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/56800732_2943433609015320_2584801199513403392_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/CrowlyArt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/Image3.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_001.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_002.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_003.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_004.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_005.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_006.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_007.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_008.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_009.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_010.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_011.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_012.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_013.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_014.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_015.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_016.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/P1_018.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/Sasho.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/carpet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/Феникс.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/Чипровци.JPG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/а1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/а2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/tattoos/музей.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/inlarge_tattoos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/core/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gallery/_pager_side_buttons.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gallery/_pagination_numbers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/gallery/_tattoo_card.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CrowleyArt/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CrowleyArt/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery/mixins.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/mixins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gallery/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallery/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gallery/tattoo-add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery/tattoo-add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gallery/tattoo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gallery/tattoo-list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2zph9Ry6gbsqa2gPNB5jexJ2pjJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.CrowleyArt.executor": "Run",
+    "Python.mixins.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Django Basics/CrowleyArt",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.python.django.customization.DjangoModulesConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Django Basics\CrowleyArt\static\js" />
+      <recent name="C:\Django Basics\CrowleyArt\templates\accounts" />
+      <recent name="C:\Django Basics\CrowleyArt\templates\register" />
+      <recent name="C:\Django Basics\CrowleyArt\templates\gallery" />
+      <recent name="C:\Django Basics\CrowleyArt\templates\common" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.CrowleyArt">
+    <configuration name="mixins" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CrowleyArt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gallery" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gallery/mixins.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CrowleyArt" type="Python.DjangoServer" factoryName="Django server">
+      <module name="CrowleyArt" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="CrowleyArt.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.mixins" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26574.90" />
+        <option value="bundled-python-sdk-c1fac28bca04-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26574.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c9684fb6-069a-4d07-b1c4-495abc75394a" name="Changes" comment="" />
+      <created>1752433773031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752433773031</updated>
+      <workItem from="1752433774540" duration="1910000" />
+      <workItem from="1752435887628" duration="3064000" />
+      <workItem from="1752592426527" duration="3641000" />
+      <workItem from="1752601404029" duration="63000" />
+      <workItem from="1752601480020" duration="4511000" />
+      <workItem from="1752999724639" duration="31564000" />
+      <workItem from="1753036198177" duration="617000" />
+      <workItem from="1753037056992" duration="5182000" />
+      <workItem from="1753199244004" duration="14723000" />
+      <workItem from="1753283345430" duration="11965000" />
+      <workItem from="1753456576883" duration="14906000" />
+      <workItem from="1753516390874" duration="11787000" />
+      <workItem from="1753532332210" duration="379000" />
+      <workItem from="1753532806062" duration="17821000" />
+      <workItem from="1753593128131" duration="51325000" />
+      <workItem from="1753801214900" duration="9117000" />
+      <workItem from="1753890447618" duration="5681000" />
+      <workItem from="1754040789535" duration="13288000" />
+      <workItem from="1754120320562" duration="39132000" />
+      <workItem from="1754200201796" duration="31952000" />
+      <workItem from="1754406585416" duration="104000" />
+      <workItem from="1754815292363" duration="12611000" />
+      <workItem from="1754829128354" duration="12473000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CrowleyArt$mixins.coverage" NAME="mixins Coverage Results" MODIFIED="1754059852682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gallery" />
+  </component>
+</project>

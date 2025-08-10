@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <title>Crowley Art</title>
 
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
+
 <body>
 {% include "common/navbar.html" %}
 
 <div class="content-wrapper">
     <header class="hero-header text-center text-light py-4">
+      {% block page-header %}
         <h1 class="display-4 fw-bold">Crowley Art</h1>
         <p class="lead">Where gothic ink meets digital mysticism</p>
+      {% endblock %}
     </header>
 
     <main class="container py-4">
@@ -28,6 +30,27 @@
     <p>&copy; 2025 Crowley Art. All rights reserved.</p>
 </footer>
 
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+<script>
+  window.USER_IS_AUTH = {{ request.user.is_authenticated|yesno:"true,false" }};
+  window.LOGIN_PROMPT_URL = "{% url 'gallery-please-login' %}";
+</script>
+
+<script src="{% static 'js/inlarge_tattoos.js' %}" defer></script>
+
+<div id="tattoo-modal" class="tattoo-modal">
+    <div class="tattoo-modal-content">
+        <span class="tattoo-modal-close">&times;</span>
+        <div class="modal-inner">
+            <img id="modal-img" src="" alt="">
+            <div class="modal-info">
+                <h5 id="modal-title" class="mb-1"></h5>
+                <p id="modal-style" class="mb-1"></p>
+                <p id="modal-price" class="text-muted mb-0"></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

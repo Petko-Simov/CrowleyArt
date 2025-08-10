@@ -1,22 +1,37 @@
 {% extends "common/base.html" %}
 {% load static %}
+
+{% block page-header %}{% endblock %}
+
 {% block content %}
-  <div class="container mt-5" style="max-width: 600px;">
-    <h2 class="text-light mb-4">Add Tattoo</h2>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.non_field_errors }}
-      {% for field in form %}
-        <div class="mb-3">
-          {{ field.label_tag }}
-          {{ field }}
-          {% for err in field.errors %}
-            <div class="text-danger">{{ err }}</div>
-          {% endfor %}
+    <div class="add-tattoo-container">
+        <div class="edit-profile-wrapper">
+            <div class="edit-form-wrapper">
+                <h3 class="edit-profile-heading">Add Tattoo</h3>
+
+                <form method="post" enctype="multipart/form-data" id="add-tattoo-form">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                    {% for field in form %}
+                        <div class="mb-3">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.help_text %}
+                                <div class="form-text text-light">{{ field.help_text }}</div>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </form>
+
+                <div class="edit-btn-wrapper">
+                    <button type="submit" form="add-tattoo-form" class="custom-login-btn">Save</button>
+                    <a href="{% url 'tattoo-list' %}" class="btn btn-outline-light">Cancel</a>
+                </div>
+            </div>
         </div>
-      {% endfor %}
-      <button type="submit" class="btn btn-success">Save</button>
-      <a href="{% url 'tattoo-list' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-  </div>
+    </div>
 {% endblock %}
