@@ -37,3 +37,9 @@ A Django project for managing tattoo artist profiles and portfolios with a custo
   - Centered numeric pagination between the side buttons at the same vertical level.
   - Left/right panels now paginate using current page items to keep columns stable across pages.
 
+- [Gallery: bulk delete — Select all, symmetric side buttons; hover/focus; staff checkboxes](https://github.com/Petko-Simov/CrowleyArt/commit/4083d680de2ee904d37b0d2243bae62a2635c0a8)
+  - Added staff-only checkboxes at the bottom-right of each card (transparent with blue border).
+  - Placed “Select all” and “Delete” buttons symmetrically around the centered “Add Tattoo”; stable hover/focus.
+  - Clicking the checkbox doesn’t open the modal; kept centered numeric pagination and side Prev/Next intact.
+
+
