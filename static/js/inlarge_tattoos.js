@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceEl = document.getElementById('modal-price');
     const close = document.querySelector('.tattoo-modal-close');
 
-    // helper to open modal card info
     function openCard(card) {
         const img = card.querySelector('img');
         let title = card.querySelector('.card-title')?.textContent?.trim();
@@ -26,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.querySelectorAll('.tattoo-card').forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.tattoo-select')) return;
 
             console.log('USER_IS_AUTH:', window.USER_IS_AUTH, 'LOGIN_PROMPT_URL:', window.LOGIN_PROMPT_URL);
 
@@ -59,4 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
             closeModal();
         }
     });
+
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.tattoo-select')) e.stopPropagation();
+    }, true);
 });

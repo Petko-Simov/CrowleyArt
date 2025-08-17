@@ -8,46 +8,69 @@
 {% endblock %}
 
 {% block content %}
-    <div class="home-gallery-wrapper gallery-page">
-        <div class="side-panel left-panel">
-            {% for tattoo in left_tattoos %}
-                <div class="tattoo-wrapper">
-                    {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
-                </div>
-            {% empty %}
-                <p class="text-muted">No tattoos yet.</p>
-            {% endfor %}
-        </div>
 
-        <div class="side-panel right-panel">
-            {% for tattoo in right_tattoos %}
-                <div class="tattoo-wrapper">
-                    {% include 'gallery/_tattoo_card.html' with tattoo=tattoo %}
-                </div>
-            {% empty %}
-                <p class="text-muted">No tattoos yet.</p>
-            {% endfor %}
-        </div>
+    {% if user.is_staff %}
+        <form id="bulk-delete-form" method="post" action="{% url 'tattoo-bulk-delete' %}">
+        {% csrf_token %}
+    {% endif %}
 
-        {% if page_obj.has_previous %}
-            <a class="btn custom-login-btn pager-prev"
-               href="?page={{ page_obj.previous_page_number }}"
-               aria-label="Previous">Previous</a>
-        {% endif %}
-        {% if page_obj.has_next %}
-            <a class="btn custom-login-btn pager-next"
-               href="?page={{ page_obj.next_page_number }}"
-               aria-label="Next">Next</a>
-        {% endif %}
-  
-        {% include 'gallery/_pagination_numbers.html' with page_obj=page_obj %}
-
+<div class="home-gallery-wrapper gallery-page">
+    <div class="side-panel left-panel">
+        {% for tattoo in left_tattoos %}
+            <div class="tattoo-wrapper">
+                {% include 'gallery/_tattoo_card.html' with tattoo=tattoo show_select=user.is_staff %}
+            </div>
+        {% empty %}
+            <p class="text-muted">No tattoos yet.</p>
+        {% endfor %}
     </div>
+
+    <div class="side-panel right-panel">
+        {% for tattoo in right_tattoos %}
+            <div class="tattoo-wrapper">
+                {% include 'gallery/_tattoo_card.html' with tattoo=tattoo show_select=user.is_staff %}
+            </div>
+        {% empty %}
+            <p class="text-muted">No tattoos yet.</p>
+        {% endfor %}
+    </div>
+
+    {% if page_obj.has_previous %}
+        <a class="btn custom-login-btn pager-prev"
+           href="?page={{ page_obj.previous_page_number }}"
+           aria-label="Previous">Previous</a>
+    {% endif %}
+    {% if page_obj.has_next %}
+        <a class="btn custom-login-btn pager-next"
+           href="?page={{ page_obj.next_page_number }}"
+           aria-label="Next">Next</a>
+    {% endif %}
+
+    {% include 'gallery/_pagination_numbers.html' with page_obj=page_obj %}
+</div>
+
+{% if user.is_staff %}
+    <button type="button" id="select-all-btn"
+            class="btn custom-login-btn bulk-btn bulk-left">
+        Select all
+    </button>
+
+    <button type="submit" id="delete-selected"
+            class="btn custom-login-btn bulk-btn bulk-right" disabled>
+        Delete <span class="count">0</span>
+    </button>
+    </form>
+{% endif %}
+
 
     {% if user.is_staff %}
         <div class="add-tattoo-fixed">
             <a href="{% url 'tattoo-add' %}" class="btn custom-login-btn">Add Tattoo</a>
         </div>
     {% endif %}
-{% endblock %}
 
+    {% if user.is_staff %}
+        <script src="{% static 'js/bulk_delete.js' %}" defer></script>
+    {% endif %}
+
+{% endblock %}

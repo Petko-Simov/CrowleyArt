@@ -1,7 +1,8 @@
+from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DeleteView
 
 from gallery.mixins import GalleryLoginRequiredMixin
 from gallery.models import Tattoo
@@ -43,3 +44,20 @@ class TattooCreateView(GalleryLoginRequiredMixin, UserPassesTestMixin, CreateVie
     def form_valid(self, form):
         form.instance.added_by = self.request.user
         return super().form_valid(form)
+
+
+class TattooBulkDeleteView(GalleryLoginRequiredMixin, UserPassesTestMixin, DeleteView):
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def post(self, request, *args, **kwargs):
+        ids = request.POST.getlist('ids')
+        if not ids:
+            messages.info(request, "No tattoos selected.")
+            return redirect('tattoo-list')
+
+        deleted, _ = Tattoo.objects.filter(id__in=ids).delete()
+        messages.success(request, f"Deleted {len(ids)} tattoo(s).")
+        return redirect('tattoo-list')
+

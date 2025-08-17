@@ -2,6 +2,11 @@
      data-title="{{ tattoo.tattoo_name }}"
      data-style="{{ tattoo.style }}"
      data-price="{{ tattoo.price }} €">
+
+  {% if show_select %}
+    <input type="checkbox" class="tattoo-select" name="ids" value="{{ tattoo.id }}">
+  {% endif %}
+
   <div class="image-wrapper">
     <img src="{{ tattoo.image.url }}" alt="{{ tattoo.tattoo_name }}" loading="lazy">
   </div>
